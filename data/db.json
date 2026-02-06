@@ -1,0 +1,132 @@
+{
+    "users":[
+  {
+    "id": 1,
+    "name": "Ana Silva",
+    "email": "ana.silva@email.com",
+    "role": "admin",
+    "country": "Brasil",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Carlos Souza",
+    "email": "carlos.souza@email.com",
+    "role": "user",
+    "country": "Brasil",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "name": "Mariana Costa",
+    "email": "mariana.costa@email.com",
+    "role": "user",
+    "country": "Portugal",
+    "status": "inactive"
+  },
+  {
+    "id": 4,
+    "name": "Lucas Pereira",
+    "email": "lucas.pereira@email.com",
+    "role": "user",
+    "country": "Argentina",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "name": "Fernanda Lima",
+    "email": "fernanda.lima@email.com",
+    "role": "admin",
+    "country": "Brasil",
+    "status": "inactive"
+  }
+],
+
+"orders": [
+  {
+    "id": 1001,
+    "userId": 1,
+    "status": "completed",
+    "date": "2024-11-01",
+    "items": [
+      { "name": "Curso de React para Iniciantes", "price": 297.0, "quantity": 1 },
+      { "name": "Curso de Git e GitHub", "price": 200.0, "quantity": 1 }
+    ]
+  },
+  {
+    "id": 1002,
+    "userId": 2,
+    "status": "pending",
+    "date": "2024-11-03",
+    "items": [
+      { "name": "Curso de JavaScript Avançado", "price": 299.0, "quantity": 1 }
+    ]
+  },
+  {
+    "id": 1003,
+    "userId": 3,
+    "status": "canceled",
+    "date": "2024-10-28",
+    "items": [
+      { "name": "Curso de Node.js Completo", "price": 399.0, "quantity": 1 }
+    ]
+  },
+  {
+    "id": 1004,
+    "userId": 4,
+    "status": "completed",
+    "date": "2024-11-05",
+    "items": [
+      { "name": "Curso Fullstack JavaScript", "price": 599.0, "quantity": 1 }
+    ]
+  },
+  {
+    "id": 1005,
+    "userId": 2,
+    "status": "completed",
+    "date": "2024-11-06",
+    "items": [
+      { "name": "Curso de HTML e CSS", "price": 199.0, "quantity": 1 }
+    ]
+  }
+],
+
+"comissions": [
+  {
+    "id": 5001,
+    "userId": 1,
+    "orderId": 1001,
+    "value": 25.05,
+    "status": "paid"
+  },
+  {
+    "id": 5002,
+    "userId": 2,
+    "orderId": 1002,
+    "value": 12.0,
+    "status": "pending"
+  },
+  {
+    "id": 5003,
+    "userId": 3,
+    "orderId": 1003,
+    "value": 30.0,
+    "status": "pending"
+  },
+  {
+    "id": 5004,
+    "userId": 4,
+    "orderId": 1004,
+    "value": 18.0,
+    "status": "paid"
+  },
+  {
+    "id": 5005,
+    "userId": 2,
+    "orderId": 1005,
+    "value": 9.0,
+    "status": "paid"
+  }
+]
+
+}

@@ -1,4 +1,84 @@
+
 [
-  { "id": 1, "name": "Ana", "email": "ana@email.com", "status": "active" },
-  { "id": 2, "name": "Bruno", "email": "bruno@email.com", "status": "inactive" }
+  {
+    "id": 1,
+    "name": "Bruno Almeida",
+    "email": "bruno.almeida@email.com",
+    "role": "admin",
+    "country": "Brazil",
+    "status": "active"
+  },
+  {
+    "id": 2,
+    "name": "Mariana Costa",
+    "email": "mariana.costa@email.com",
+    "role": "seller",
+    "country": "Brazil",
+    "status": "active"
+  },
+  {
+    "id": 3,
+    "name": "Lucas Ferreira",
+    "email": "lucas.ferreira@email.com",
+    "role": "seller",
+    "country": "Portugal",
+    "status": "inactive"
+  },
+  {
+    "id": 4,
+    "name": "Camila Rodrigues",
+    "email": "camila.rodrigues@email.com",
+    "role": "user",
+    "country": "Brazil",
+    "status": "active"
+  },
+  {
+    "id": 5,
+    "name": "Gabriel Martins",
+    "email": "gabriel.martins@email.com",
+    "role": "admin",
+    "country": "United States",
+    "status": "active"
+  },
+  {
+    "id": 6,
+    "name": "Isabela Santos",
+    "email": "isabela.santos@email.com",
+    "role": "user",
+    "country": "Argentina",
+    "status": "inactive"
+  },
+  {
+    "id": 7,
+    "name": "Rafael Oliveira",
+    "email": "rafael.oliveira@email.com",
+    "role": "user",
+    "country": "Brazil",
+    "status": "active"
+  },
+  {
+    "id": 8,
+    "name": "Fernanda Lima",
+    "email": "fernanda.lima@email.com",
+    "role": "user",
+    "country": "Chile",
+    "status": "active"
+  },
+  {
+    "id": 9,
+    "name": "Pedro Henrique",
+    "email": "pedro.henrique@email.com",
+    "role": "selller",
+    "country": "Portugal",
+    "status": "inactive"
+  },
+  {
+    "id": 10,
+    "name": "Ana Beatriz",
+    "email": "ana.beatriz@email.com",
+    "role": "user",
+    "country": "Brazil",
+    "status": "active"
+  }
 ]
+

@@ -1,6 +1,16 @@
-export type Order = {
+export interface OrderItem {
   id: number;
-  customer: string;
+  name: "AI Engineer" | "Full Stack Developer" | "BI Analyst" | "DevOps";
+  orderId: number;
+  quantity: number;
+  unitPrice: number;
+}
+
+export interface Order {
+  id: number;
+  clientId: number;
+  sellerId: number;
+  status: "pending" | "processing" | "completed" | "cancelled";
   total: number;
-  status: 'paid' | 'pending';
-};
+  date: string;
+}

@@ -1,6 +1,6 @@
-export type Commission = {
+export interface Commission {
   id: number;
-  seller: string;
-  value: number;
-  period: string;
-};
+  orderId: number;
+  amount: number;
+  status: "pending" | "paid";
+}

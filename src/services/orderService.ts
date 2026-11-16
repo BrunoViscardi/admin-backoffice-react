@@ -19,12 +19,19 @@ export async function getOrderById(id: number): Promise<Order>{
   return order;
 }
 
-export async function getOrderItemsByOrderId(orderId: number): Promise<OrderItem[]> {
+
+export async function getOrderItems(): Promise<OrderItem[]> {
   const response = await fetch('data/orderItems.json');
   if (!response.ok) {
-    throw new Error('Não foi possível buscar os itens do pedido');
+    throw new Error('Não foi possível buscar os itens dos pedidos');
   }
   const orderItems: OrderItem[] = await response.json();
+  return orderItems;
+  } 
+
+export async function getOrderItemsByOrderId(orderId: number): Promise<OrderItem[]> {
+  
+  const orderItems = await getOrderItems();
   
   const orderItemsByOrderId = orderItems.filter((item) => item.orderId === orderId);
 

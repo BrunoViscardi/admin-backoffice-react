@@ -44,9 +44,47 @@ export function DataProvider({ children }: PropsWithChildren) {
     loadData();
   }, []);
 
+  function editUser<K extends keyof User>(
+    id: number,
+    field: K,
+    value: User[K],
+  ) {
+    setUsers((currentUsers) =>
+      currentUsers.map((user) =>
+        user.id === id ? { ...user, [field]: value } : user,
+      ),
+    );
+  }
+
+  function editOrderStatus(id: number, status: Order["status"]) {
+    setOrders((currentOrders) =>
+      currentOrders.map((order) =>
+        order.id === id ? { ...order, status } : order,
+      ),
+    );
+  }
+
+  function editCommissionStatus(id: number, status: Commission["status"]) {
+    setCommissions((currentCommissions) =>
+      currentCommissions.map((commission) =>
+        commission.id === id ? { ...commission, status } : commission,
+      ),
+    );
+  }
+
   return (
     <DataContext.Provider
-      value={{ users, orders, orderItems, commissions, loading, error }}
+      value={{
+        users,
+        orders,
+        orderItems,
+        commissions,
+        loading,
+        error,
+        editUser,
+        editOrderStatus,
+        editCommissionStatus,
+      }}
     >
       {children}
     </DataContext.Provider>

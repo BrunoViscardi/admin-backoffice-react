@@ -10,6 +10,14 @@ export async function getCommissions() {
   return commissions;
 }
 
+export async function editCommissionStatusById(id: number, status: Commission['status']): Promise<Commission> {
+  const commissions = await getCommissions();
+  const commission = commissions.find((commission) => commission.id === id);
+  const updatedCommission = { ...commission, status } as Commission;
+  return updatedCommission;  
+}
+
+
 
 export async function getCommissionTotals() {
   const commissions = await getCommissions();

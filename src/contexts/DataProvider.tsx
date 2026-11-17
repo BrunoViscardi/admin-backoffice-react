@@ -15,6 +15,7 @@ export function DataProvider({ children }: PropsWithChildren) {
   const [commissions, setCommissions] = useState<Commission[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     async function loadData() {
@@ -22,27 +23,64 @@ export function DataProvider({ children }: PropsWithChildren) {
       setError(null);
 
       try {
-        const [usersData, ordersData, orderItemsData, commissionsData] =
-          await Promise.all([
-            getUsers(),
-            getOrders(),
-            getOrderItems(),
-            getCommissions(),
-          ]);
+        const storedUsers = localStorage.getItem("users");
 
-        setUsers(usersData);
-        setOrders(ordersData);
-        setOrderItems(orderItemsData);
-        setCommissions(commissionsData);
+        if (storedUsers) {
+          setUsers(JSON.parse(storedUsers));
+        } else {
+          const usersData = await getUsers();
+          setUsers(usersData);
+          localStorage.setItem("users", JSON.stringify(usersData));
+        }
+
+        const storedOrders = localStorage.getItem("orders");
+
+        if (storedOrders) {
+          setOrders(JSON.parse(storedOrders));
+        } else {
+          const ordersData = await getOrders();
+          setOrders(ordersData);
+          localStorage.setItem("orders", JSON.stringify(ordersData));
+        }
+
+        const storedOrderItems = localStorage.getItem("orderItems");
+
+        if (storedOrderItems) {
+          setOrderItems(JSON.parse(storedOrderItems));
+        } else {
+          const orderItemsData = await getOrderItems();
+          setOrderItems(orderItemsData);
+          localStorage.setItem("orderItems", JSON.stringify(orderItemsData));
+        }
+
+        const storedCommissions = localStorage.getItem("commissions");
+
+        if (storedCommissions) {
+          setCommissions(JSON.parse(storedCommissions));
+        } else {
+          const commissionsData = await getCommissions();
+          setCommissions(commissionsData);
+          localStorage.setItem("commissions", JSON.stringify(commissionsData));
+        }
       } catch (err) {
         setError("Erro ao carregar os dados");
       } finally {
         setLoading(false);
+        setIsInitialized(true);
       }
     }
 
     loadData();
   }, []);
+
+  useEffect(() => {
+    if (!isInitialized) return;
+
+    localStorage.setItem("users", JSON.stringify(users));
+    localStorage.setItem("orders", JSON.stringify(orders));
+    localStorage.setItem("orderItems", JSON.stringify(orderItems));
+    localStorage.setItem("commissions", JSON.stringify(commissions));
+  }, [users, orders, orderItems, commissions]);
 
   function editUser<K extends keyof User>(
     id: number,
